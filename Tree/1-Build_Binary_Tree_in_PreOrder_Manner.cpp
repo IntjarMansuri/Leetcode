@@ -37,9 +37,31 @@ void printPreOrder(Node* root) {
     if(!root) return;
 
     // Recursion Case
-    cout<<root->data<<" ";
+    cout << root->data << " ";
     printPreOrder(root->left);
     printPreOrder(root->right);
+}
+
+void printInOrder(Node* root) {
+    
+    // Base Case
+    if(!root) return;
+
+    // Recursion Case
+    printInOrder(root->left);
+    cout << root->data << " ";
+    printInOrder(root->right);
+}
+
+void printPostOrder(Node* root) {
+
+    // Base Case
+    if(!root) return;
+
+    // Recursion Case
+    printPostOrder(root->left);
+    printPostOrder(root->right);
+    cout << root->data << " ";
 }
 
 int main() {
@@ -47,4 +69,8 @@ int main() {
     Node* root = buildBinaryTreePreOrder();
 
     printPreOrder(root);
+    cout << endl;
+    printInOrder(root);
+    cout << endl;
+    printPostOrder(root);
 }
