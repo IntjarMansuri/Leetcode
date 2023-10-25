@@ -57,3 +57,7 @@ int main() {
 
     return 0;
 }
+
+// Approach 2 : DFS (Depth First Search)
+// T.C = O(n)
+// S.C = O(n)
