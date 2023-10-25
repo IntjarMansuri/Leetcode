@@ -10,17 +10,17 @@ struct TreeNode {
 
 };
 
-// Function to create a binary tree in preorder manner
-TreeNode* createTree(vector<int>& preorder, int& index) {
-    if (index >= preorder.size() || preorder[index] == -1) {
-        index++;
+TreeNode* createTree() {
+    int val;
+    cin >> val;
+
+    if(val == -1) {
         return NULL;
     }
 
-    TreeNode* root = new TreeNode(preorder[index]);
-    index++;
-    root->left = createTree(preorder, index);
-    root->right = createTree(preorder, index);
+    TreeNode* root = new TreeNode(val);
+    root->left = createTree();
+    root->right = createTree();
 
     return root;
 }
@@ -52,27 +52,18 @@ vector<int> findLargestValues(TreeNode* root) {
 
 
 int main() {
-    vector<int> preorder;
-
-    int val;
-    while (cin >> val) {
-        preorder.push_back(val);
-    }
-
-    int index = 0;
-
-    TreeNode* root = createTree(preorder, index);
+    TreeNode* root = createTree();
 
     vector<int> result = findLargestValues(root);
 
     cout << "Largest values in each level: ";
-    for (int val : result) {
+    for(int val : result) {
         cout << val << " ";
     }
 
     return 0;
 }
 
-// Approach 1 : BFS
+// Approach 1 : BFS (Bredth First Search)
 // T.C = O(n)
 // S.C = O(n)
