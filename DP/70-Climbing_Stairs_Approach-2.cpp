@@ -19,7 +19,7 @@ int solve(int n) {
     int one_step = solve(n-1);
     int two_step = solve(n-2);
 
-    return one_step + two_step;
+    return dp[n] =  one_step + two_step;
 }
 
 int climbStars(int n) {
