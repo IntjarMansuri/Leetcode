@@ -22,3 +22,6 @@ int main() {
     cout << tribonacci(n) << endl;
     return 0;
 }
+
+// Approach : Bottom Up;
+// Time Complexit: O(37)
